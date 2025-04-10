@@ -40,12 +40,10 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", button)
     ActionChains(driver).move_to_element(button).pause(0.5).click().perform()
 
-    # Wait for the alert and handle it
-    WebDriverWait(driver, 10).until(EC.alert_is_present())
-    alert = driver.switch_to.alert
-    alert_text = alert.text
-    print("✅ Alert detected:", alert_text)
-    alert.accept()
+    # Optional: wait briefly to ensure backend has time to send mail
+    time.sleep(5)
+
+    print("✅ Mail send button clicked successfully.")
 
 except Exception as e:
     print("❌ Error:", str(e))
