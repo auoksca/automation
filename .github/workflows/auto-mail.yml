@@ -2,8 +2,8 @@ name: Auto Send Mail
 
 on:
   schedule:
-    - cron: '0 9 * * *'  # Every day at 9 AM UTC
-  workflow_dispatch:     # Optional: run manually
+    - cron: '0 9 * * *'
+  workflow_dispatch:
 
 jobs:
   run-script:
@@ -33,7 +33,6 @@ jobs:
         wget -N https://chromedriver.storage.googleapis.com/${CHROME_VERSION}/chromedriver_linux64.zip
         unzip chromedriver_linux64.zip
         sudo mv chromedriver /usr/local/bin/
-        chromedriver --version
 
     - name: Run automation script
       run: python main.py
