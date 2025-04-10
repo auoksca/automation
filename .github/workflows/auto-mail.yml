@@ -33,4 +33,6 @@ jobs:
         sudo apt-get install -y google-chrome-stable
 
     - name: Run automation script
-      run: python main.py
+      run: |
+        sudo apt-get install -y xvfb
+        xvfb-run --auto-servernum --server-args='-screen 0 1920x1080x24' python main.py
